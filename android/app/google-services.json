@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "260271644673",
+    "project_id": "ewidencja-zabiegow-1",
+    "storage_bucket": "ewidencja-zabiegow-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260271644673:android:88b42d3d21fcf924a56000",
+        "android_client_info": {
+          "package_name": "com.jacekferdynus.flutter_ewidencja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260271644673-gdacvp73j7lc40ndiafo3t5sgoavufkb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBB7dZq9e4gG6qdGrO23SjY-r0hWZr0W0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260271644673-gdacvp73j7lc40ndiafo3t5sgoavufkb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

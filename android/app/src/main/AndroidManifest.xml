@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_ewidencja">
+    package="com.jacekferdynus.flutter_ewidencja">
    <application
         android:label="flutter_ewidencja"
         android:name="${applicationName}"

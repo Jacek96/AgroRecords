@@ -1,4 +1,4 @@
-package com.example.flutter_ewidencja
+package com.jacekferdynus.flutter_ewidencja
 
 import io.flutter.embedding.android.FlutterActivity
 
