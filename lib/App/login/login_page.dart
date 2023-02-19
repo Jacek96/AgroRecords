@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ewidencja/components/my_text_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({
@@ -30,18 +31,12 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: 30),
 
               //email textfield
-              TextField(
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
-                ),
-              ),
+              MyTextField(),
+
+              SizedBox(height: 20),
 
               //password textfiled
+              MyTextField(),
 
               // forgot password
 
