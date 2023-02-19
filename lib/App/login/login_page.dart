@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ewidencja/components/my_button.dart';
 import 'package:flutter_ewidencja/components/my_text_field.dart';
 
 class LoginPage extends StatelessWidget {
@@ -9,6 +10,9 @@ class LoginPage extends StatelessWidget {
   // text editing controler
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+
+  // sign user In
+  void signUserIn() {}
 
   @override
   build(BuildContext context) {
@@ -61,8 +65,16 @@ class LoginPage extends StatelessWidget {
                     Text('Forgot password?'),
                   ],
                 ),
-              )
+              ),
+
+              SizedBox(height: 20),
+
               // sign in button
+              MyButton(
+                onTap: signUserIn,
+              ),
+
+              SizedBox(height: 20),
 
               // or continue with
 
