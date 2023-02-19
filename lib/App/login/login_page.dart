@@ -77,6 +77,29 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: 20),
 
               // or continue with
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 1.5,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: Text('Or continue with'),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        thickness: 1.5,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              )
 
               // google + apple sign in buttons
 
