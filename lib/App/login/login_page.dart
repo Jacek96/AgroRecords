@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ewidencja/components/my_button.dart';
 import 'package:flutter_ewidencja/components/my_text_field.dart';
+import 'package:flutter_ewidencja/components/squere_tile.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({
@@ -74,7 +75,7 @@ class LoginPage extends StatelessWidget {
                 onTap: signUserIn,
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: 50),
 
               // or continue with
               Padding(
@@ -99,10 +100,23 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
+
+              SizedBox(height: 40),
 
               // google + apple sign in buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // google button
+                  SquareTile(imagePath: 'lib/images/google.png'),
 
+                  SizedBox(width: 10),
+
+                  // apple button
+                  SquareTile(imagePath: 'lib/images/apple.png'),
+                ],
+              ),
               // not a member? register now
             ],
           ),
