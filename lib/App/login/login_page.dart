@@ -22,22 +22,22 @@ class LoginPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               // logo
-              Icon(
-                Icons.lock,
-                size: 100,
+              Image.asset(
+                'lib/images/bug.jpg',
+                height: 110,
               ),
 
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // Welcome back, you've been missed
-              Text(
+              const Text(
                 'Welcome back, you\'ve been missed',
                 style: TextStyle(fontSize: 16),
               ),
 
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               //email textfield
               MyTextField(
@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget {
                 obscureText: false,
               ),
 
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               //password textfiled
               MyTextField(
@@ -55,33 +55,33 @@ class LoginPage extends StatelessWidget {
                 obscureText: true,
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // forgot password
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children: const [
                     Text('Forgot password?'),
                   ],
                 ),
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // sign in button
               MyButton(
                 onTap: signUserIn,
               ),
 
-              SizedBox(height: 50),
+              const SizedBox(height: 30),
 
               // or continue with
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
-                  children: [
+                  children: const [
                     Expanded(
                       child: Divider(
                         thickness: 1.5,
@@ -89,7 +89,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      padding: EdgeInsets.symmetric(horizontal: 25.0),
                       child: Text('Or continue with'),
                     ),
                     Expanded(
@@ -102,12 +102,12 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
 
               // google + apple sign in buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   // google button
                   SquareTile(imagePath: 'lib/images/google.png'),
 
