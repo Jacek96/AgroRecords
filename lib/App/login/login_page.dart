@@ -3,15 +3,21 @@ import 'package:flutter_ewidencja/components/my_button.dart';
 import 'package:flutter_ewidencja/components/my_text_field.dart';
 import 'package:flutter_ewidencja/components/squere_tile.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({
     Key? key,
   }) : super(key: key);
 
   // text editing controler
   final usernameController = TextEditingController();
+
   final passwordController = TextEditingController();
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   // sign user In
   void signUserIn() {}
 
@@ -41,7 +47,7 @@ class LoginPage extends StatelessWidget {
 
               //email textfield
               MyTextField(
-                controller: usernameController,
+                controller: widget.usernameController,
                 hintText: 'Username',
                 obscureText: false,
               ),
@@ -50,7 +56,7 @@ class LoginPage extends StatelessWidget {
 
               //password textfiled
               MyTextField(
-                controller: passwordController,
+                controller: widget.passwordController,
                 hintText: 'Password',
                 obscureText: true,
               ),
