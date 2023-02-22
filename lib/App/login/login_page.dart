@@ -18,6 +18,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  var errorMessage = '';
+
   // sign user In
   void signUserIn() {}
 
@@ -75,6 +77,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               const SizedBox(height: 20),
+
+              Text(errorMessage),
 
               // sign in button
               MyButton(
