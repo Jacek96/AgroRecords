@@ -20,6 +20,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   var errorMessage = '';
+  var isCreatingAccount = false;
 
   // sign user In
   void signUserIn() {}
@@ -41,8 +42,10 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 30),
 
               // Welcome back, you've been missed
-              const Text(
-                'Welcome back, you\'ve been missed',
+              Text(
+                isCreatingAccount == true
+                    ? 'Create a new account'
+                    : 'Welcome back, you\'ve been missed',
                 style: TextStyle(fontSize: 16),
               ),
 
@@ -97,23 +100,60 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 onPressed: () async {
-                  try {
-                    await FirebaseAuth.instance.signInWithEmailAndPassword(
-                        email: widget.usernameController.text,
-                        password: widget.passwordController.text);
-                  } catch (error) {
-                    setState(
-                      () {
-                        errorMessage = error.toString();
-                      },
-                    );
+                  if (isCreatingAccount == true) {
+                    //rejestracja
+                    try {
+                      await FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: widget.usernameController.text,
+                              password: widget.passwordController.text);
+                    } catch (error) {
+                      setState(
+                        () {
+                          errorMessage = error.toString();
+                        },
+                      );
+                    }
+                  } else {
+                    try {
+                      await FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email: widget.usernameController.text,
+                          password: widget.passwordController.text);
+                    } catch (error) {
+                      setState(
+                        () {
+                          errorMessage = error.toString();
+                        },
+                      );
+                    }
                   }
                 },
-                child: const Text('Login'),
+                child: Text(isCreatingAccount == true ? 'Sign In' : 'Login'),
               ),
               // MyButton(
               //   onTap: signUserIn,
               // ),
+              const SizedBox(height: 10),
+              if (isCreatingAccount == false) ...[
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      isCreatingAccount = true;
+                    });
+                  },
+                  child: Text('Create account'),
+                ),
+              ],
+              if (isCreatingAccount == true) ...[
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      isCreatingAccount = false;
+                    });
+                  },
+                  child: Text('I have an account'),
+                ),
+              ],
 
               const SizedBox(height: 30),
 
