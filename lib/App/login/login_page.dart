@@ -10,7 +10,6 @@ class LoginPage extends StatefulWidget {
 
   // text editing controler
   final usernameController = TextEditingController();
-
   final passwordController = TextEditingController();
 
   @override

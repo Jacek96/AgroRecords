@@ -1,31 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final void Function()? onTap;
-  const MyButton({super.key, required this.onTap});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: onTap,
-//       child: Container(
-//         padding: const EdgeInsets.all(25.0),
-//         margin: const EdgeInsetsDirectional.symmetric(horizontal: 25),
-//         decoration: BoxDecoration(
-//           color: Colors.black,
-//           borderRadius: BorderRadius.circular(8),
-//         ),
-//         child: const Center(
-//           child: Text(
-//             'Sign in',
-//             style: TextStyle(
-//                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  MyButton({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +21,16 @@ class MyButton extends StatelessWidget {
           vertical: 20,
         ),
       ),
-      onPressed: () {},
+      onPressed: () async {
+        try {
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: usernameController.text,
+            password: passwordController.text,
+          );
+        } catch (error) {
+          print(error);
+        }
+      },
       child: Text('Login'),
     );
   }
