@@ -16,7 +16,7 @@ class MyButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25),
         ),
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 120,
           vertical: 20,
         ),
@@ -31,7 +31,7 @@ class MyButton extends StatelessWidget {
           print(error);
         }
       },
-      child: Text('Login'),
+      child: const Text('Login'),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ewidencja/components/my_button.dart';
 import 'package:flutter_ewidencja/components/my_text_field.dart';
@@ -79,10 +81,39 @@ class _LoginPageState extends State<LoginPage> {
 
               Text(errorMessage),
 
+              const SizedBox(height: 10),
+
               // sign in button
-              MyButton(
-                onTap: signUserIn,
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 120,
+                    vertical: 20,
+                  ),
+                ),
+                onPressed: () async {
+                  try {
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
+                        email: widget.usernameController.text,
+                        password: widget.passwordController.text);
+                  } catch (error) {
+                    setState(
+                      () {
+                        errorMessage = error.toString();
+                      },
+                    );
+                  }
+                },
+                child: const Text('Login'),
               ),
+              // MyButton(
+              //   onTap: signUserIn,
+              // ),
 
               const SizedBox(height: 30),
 
