@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                FirebaseAuth.instance.signOut();
+                FirebaseAuth.instance.signOut(); 
               },
               child: Text('Logout'),
             ),
