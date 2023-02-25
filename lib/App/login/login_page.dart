@@ -26,180 +26,195 @@ class _LoginPageState extends State<LoginPage> {
   @override
   build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            reverse: true,
-            padding: EdgeInsets.all(32),
-            child: Column(
-              children: [
-                const SizedBox(height: 30),
-                // logo
-                Image.asset(
-                  'lib/images/bug.jpg',
-                  height: 110,
-                ),
-
-                const SizedBox(height: 30),
-
-                // Welcome back, you've been missed
-                Text(
-                  isCreatingAccount == true
-                      ? 'Create a new account'
-                      : 'Welcome back, you\'ve been missed',
-                  style: TextStyle(fontSize: 16),
-                ),
-
-                const SizedBox(height: 30),
-
-                //email textfield
-                MyTextField(
-                  controller: widget.usernameController,
-                  hintText: 'Username',
-                  obscureText: false,
-                ),
-
-                const SizedBox(height: 10),
-
-                //password textfiled
-                MyTextField(
-                  controller: widget.passwordController,
-                  hintText: 'Password',
-                  obscureText: true,
-                ),
-
-                const SizedBox(height: 20),
-
-                // forgot password
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text('Forgot password?'),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 20),
-
-                Text(errorMessage),
-
-                const SizedBox(height: 10),
-
-                // sign in button
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.green,
+              Colors.yellow,
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              reverse: true,
+              // padding: EdgeInsets.all(32),
+              child: Column(
+                children: [
+                  const SizedBox(height: 30),
+                  // logo
+                  const CircleAvatar(
+                    backgroundImage: AssetImage(
+                      'lib/images/logo.jpg',
                     ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 120,
-                      vertical: 20,
+                    radius: 60,
+                  ),
+                  const SizedBox(height: 30),
+
+                  // Welcome back, you've been missed
+                  Text(
+                    isCreatingAccount == true
+                        ? 'Create a new account'
+                        : 'Welcome back, you\'ve been missed',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+
+                  const SizedBox(height: 30),
+
+                  //email textfield
+                  MyTextField(
+                    controller: widget.usernameController,
+                    hintText: 'Username',
+                    obscureText: false,
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  //password textfiled
+                  MyTextField(
+                    controller: widget.passwordController,
+                    hintText: 'Password',
+                    obscureText: true,
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // forgot password
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: const [
+                        Text('Forgot password?'),
+                      ],
                     ),
                   ),
-                  onPressed: () async {
-                    if (isCreatingAccount == true) {
-                      //rejestracja
-                      try {
-                        await FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                                email: widget.usernameController.text,
-                                password: widget.passwordController.text);
-                      } catch (error) {
-                        setState(
-                          () {
-                            errorMessage = error.toString();
-                          },
-                        );
+
+                  const SizedBox(height: 20),
+
+                  Text(errorMessage),
+
+                  const SizedBox(height: 10),
+
+                  // sign in button
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 120,
+                        vertical: 20,
+                      ),
+                    ),
+                    onPressed: () async {
+                      if (isCreatingAccount == true) {
+                        //rejestracja
+                        try {
+                          await FirebaseAuth.instance
+                              .createUserWithEmailAndPassword(
+                                  email: widget.usernameController.text,
+                                  password: widget.passwordController.text);
+                        } catch (error) {
+                          setState(
+                            () {
+                              errorMessage = error.toString();
+                            },
+                          );
+                        }
+                      } else {
+                        try {
+                          await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                                  email: widget.usernameController.text,
+                                  password: widget.passwordController.text);
+                        } catch (error) {
+                          setState(
+                            () {
+                              errorMessage = error.toString();
+                            },
+                          );
+                        }
                       }
-                    } else {
-                      try {
-                        await FirebaseAuth.instance.signInWithEmailAndPassword(
-                            email: widget.usernameController.text,
-                            password: widget.passwordController.text);
-                      } catch (error) {
-                        setState(
-                          () {
-                            errorMessage = error.toString();
-                          },
-                        );
-                      }
-                    }
-                  },
-                  child: Text(isCreatingAccount == true ? 'Sign In' : 'Login'),
-                ),
-                // MyButton(
-                //   onTap: signUserIn,
-                // ),
-                const SizedBox(height: 10),
-                if (isCreatingAccount == false) ...[
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        isCreatingAccount = true;
-                      });
                     },
-                    child: Text('Create account'),
+                    child:
+                        Text(isCreatingAccount == true ? 'Sign In' : 'Login'),
                   ),
-                ],
-                if (isCreatingAccount == true) ...[
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        isCreatingAccount = false;
-                      });
-                    },
-                    child: Text('I have an account'),
-                  ),
-                ],
-
-                const SizedBox(height: 30),
-
-                // or continue with
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    children: const [
-                      Expanded(
-                        child: Divider(
-                          thickness: 1.5,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 25.0),
-                        child: Text('Or continue with'),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          thickness: 1.5,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 30),
-
-                // google + apple sign in buttons
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    // google button
-                    SquareTile(imagePath: 'lib/images/google.png'),
-
-                    SizedBox(width: 10),
-
-                    // apple button
-                    SquareTile(imagePath: 'lib/images/apple.png'),
+                  // MyButton(
+                  //   onTap: signUserIn,
+                  // ),
+                  const SizedBox(height: 10),
+                  if (isCreatingAccount == false) ...[
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          isCreatingAccount = true;
+                        });
+                      },
+                      child: Text('Create account'),
+                    ),
                   ],
-                ),
-                // not a member? register now
-              ],
+                  if (isCreatingAccount == true) ...[
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          isCreatingAccount = false;
+                        });
+                      },
+                      child: Text('I have an account'),
+                    ),
+                  ],
+
+                  const SizedBox(height: 30),
+
+                  // or continue with
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Divider(
+                            thickness: 1.5,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 25.0),
+                          child: Text('Or continue with'),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            thickness: 1.5,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 30),
+
+                  // google + apple sign in buttons
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      // google button
+                      SquareTile(imagePath: 'lib/images/google.png'),
+
+                      SizedBox(width: 10),
+
+                      // apple button
+                      SquareTile(imagePath: 'lib/images/apple.png'),
+                    ],
+                  ),
+                  // not a member? register now
+                ],
+              ),
             ),
           ),
         ),
