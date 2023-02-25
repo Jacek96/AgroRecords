@@ -24,21 +24,113 @@ class RecordPageContent extends StatelessWidget {
             children: [
               for (final document in documents) ...[
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(document['plantName']),
-                          Text(document['fieldArea'].toString()),
-                          Text(document['protectionArea'].toString()),
-                          Text(document['recordDate']),
-                          Text(document['productName']),
-                          Text(document['dose'].toString()),
-                          Text(document['treatmentCouse']),
-                        ],
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.green,
+                        ),
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                const Text('Data i godzina zabiegu:'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(document['recordDate']),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                const Text('Nazwa rośliny:'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(document['plantName']),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                const Text('Numer ewid. działki/pola:'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(document['fieldNumber'].toString()),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                const Text('Powierzchnia uprawy:'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(document['fieldArea'].toString()),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                const Text('Powierzchnia zabiegu:'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(document['protectionArea'].toString()),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                const Text('Nazwa środka:'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(document['productName']),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                const Text('Dawka środka:'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(document['dose'].toString()),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                const Text('Przyczyna zastosowanie ś.o.r:'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(document['treatmentCouse']),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

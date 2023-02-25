@@ -16,6 +16,7 @@ class AddRecordPageContent extends StatefulWidget {
 class _AddRecordPageContentState extends State<AddRecordPageContent> {
   var plantName = '';
   var fieldArea = '';
+  var fieldNumber = '';
   var protectionArea = '';
   var recordDate = '';
   var productName = '';
@@ -32,6 +33,29 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
             children: [
               TextField(
                 decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  hintText: 'Podaj datę i godzinę zabiegu',
+                ),
+                onChanged: (newValue) {
+                  setState(() {
+                    recordDate = newValue;
+                  });
+                },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   hintText: 'Podaj nazwę rośliny',
                 ),
                 onChanged: (newValue) {
@@ -40,8 +64,34 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
+              SizedBox(
+                height: 20,
+              ),
               TextField(
                 decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  hintText: 'Numer ewid. działki/pola',
+                ),
+                onChanged: (newValue) {
+                  setState(() {
+                    fieldNumber = newValue;
+                  });
+                },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   hintText: 'Podaj powierzchnię uprawy',
                 ),
                 onChanged: (newValue) {
@@ -50,8 +100,16 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
+              SizedBox(
+                height: 20,
+              ),
               TextField(
                 decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   hintText: 'Podaj powierzchnię wykonania zabiegu',
                 ),
                 onChanged: (newValue) {
@@ -60,18 +118,16 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
-              TextField(
-                decoration: const InputDecoration(
-                  hintText: 'Podaj termin zabiegu',
-                ),
-                onChanged: (newValue) {
-                  setState(() {
-                    recordDate = newValue;
-                  });
-                },
+              SizedBox(
+                height: 20,
               ),
               TextField(
                 decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   hintText: 'Podaj nazwę zastosowanego środka',
                 ),
                 onChanged: (newValue) {
@@ -80,8 +136,16 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
+              SizedBox(
+                height: 20,
+              ),
               TextField(
                 decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   hintText: 'Podaj dawkę ś.o.r. kg/l',
                 ),
                 onChanged: (newValue) {
@@ -90,8 +154,16 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
+              SizedBox(
+                height: 20,
+              ),
               TextField(
                 decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   hintText: 'Podaj przyczynę zastosowania ś.o.r',
                 ),
                 onChanged: (newValue) {
@@ -99,6 +171,9 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                     treatmentCouse = newValue;
                   });
                 },
+              ),
+              SizedBox(
+                height: 20,
               ),
               ElevatedButton(
                 onPressed: plantName.isEmpty ||
@@ -111,10 +186,11 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                     ? null
                     : () {
                         FirebaseFirestore.instance.collection('records').add({
+                          'recordDate': recordDate,
                           'plantName': plantName,
+                          'fieldNumber': fieldNumber,
                           'fieldArea': fieldArea,
                           'protectionArea': protectionArea,
-                          'recordDate': recordDate,
                           'productName': productName,
                           'dose': dose,
                           'treatmentCouse': treatmentCouse,
