@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ewidencja/App/Home/add_record/add_record_page_content.dart';
+import 'package:flutter_ewidencja/App/Home/my_account/my_account_page_content.dart';
+import 'package:flutter_ewidencja/App/Home/my_records/record_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -19,32 +22,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Builder(builder: (context) {
+          if (currentIndex == 0) {
+            return const Text('Ewidencja zabiegów');
+          }
+          if (currentIndex == 1) {
+            return const Text('Dodaj zabieg');
+          }
+          return const Text('Moje konto');
+        }),
+      ),
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
-          return const Center(
-            child: Text('Jeden'),
-          );
+          return const RecordPageContent();
         }
         if (currentIndex == 1) {
-          return const Center(
-            child: Text('Dwa'),
-          );
+          return const AddRecordPageContent();
         }
-        return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Jesteś zalogowany jako ${widget.user.email}'),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                },
-                child: const Text('Logout'),
-              ),
-            ],
-          ),
-        );
+        return MyAccountPageContent(email: widget.user.email);
       }),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -55,11 +51,10 @@ class _HomePageState extends State<HomePage> {
         },
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.agriculture), label: 'Records'),
+              icon: Icon(Icons.agriculture), label: 'Ewidencja'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Dodaj zabieg'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add), label: 'Add protection'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'My account'),
+              icon: Icon(Icons.person), label: 'Moje konto'),
         ],
       ),
     );

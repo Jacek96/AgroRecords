@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ewidencja/components/my_button.dart';
 import 'package:flutter_ewidencja/components/my_text_field.dart';
 import 'package:flutter_ewidencja/components/squere_tile.dart';
 
