@@ -32,6 +32,9 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
           child: Column(
             children: [
               TextField(
+                keyboardType: TextInputType.multiline,
+                minLines: 1,
+                maxLines: 5,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(

@@ -23,6 +23,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[Colors.green, Colors.yellow],
+            ),
+          ),
+        ),
         title: Builder(builder: (context) {
           if (currentIndex == 0) {
             return const Text('Ewidencja zabiegów');

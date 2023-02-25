@@ -24,109 +24,174 @@ class RecordPageContent extends StatelessWidget {
             children: [
               for (final document in documents) ...[
                 Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Wrap(
                     children: [
                       Container(
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.green,
                         ),
-                        padding: const EdgeInsets.all(20),
+                        // padding: const EdgeInsets.all(20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
+                            Wrap(
                               children: [
-                                const Text('Data i godzina zabiegu:'),
+                                const Text(
+                                  'Data i godzina zabiegu:',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(document['recordDate']),
+                                Text(
+                                  document['recordDate'],
+                                  style: const TextStyle(fontSize: 17),
+                                )
                               ],
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Row(
+                            Wrap(
                               children: [
-                                const Text('Nazwa rośliny:'),
+                                const Text(
+                                  'Nazwa rośliny:',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(document['plantName']),
+                                Text(
+                                  document['plantName'],
+                                  style: const TextStyle(fontSize: 17),
+                                ),
                               ],
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Row(
+                            Wrap(
                               children: [
-                                const Text('Numer ewid. działki/pola:'),
+                                const Text(
+                                  'Numer ewid. działki/pola:',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(document['fieldNumber'].toString()),
+                                Text(
+                                  document['fieldNumber'].toString(),
+                                  style: const TextStyle(fontSize: 17),
+                                ),
                               ],
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Row(
+                            Wrap(
                               children: [
-                                const Text('Powierzchnia uprawy:'),
+                                const Text(
+                                  'Powierzchnia uprawy:',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(document['fieldArea'].toString()),
+                                Text(
+                                  document['fieldArea'].toString(),
+                                  style: const TextStyle(fontSize: 17),
+                                ),
                               ],
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Row(
+                            Wrap(
                               children: [
-                                const Text('Powierzchnia zabiegu:'),
+                                const Text(
+                                  'Powierzchnia zabiegu:',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(document['protectionArea'].toString()),
+                                Text(
+                                  document['protectionArea'].toString(),
+                                  style: const TextStyle(fontSize: 17),
+                                ),
                               ],
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Row(
+                            Wrap(
                               children: [
-                                const Text('Nazwa środka:'),
+                                const Text(
+                                  'Nazwa środka:',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(document['productName']),
+                                Text(
+                                  document['productName'],
+                                  style: const TextStyle(fontSize: 17),
+                                ),
                               ],
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Row(
+                            Wrap(
                               children: [
-                                const Text('Dawka środka:'),
+                                const Text(
+                                  'Dawka środka:',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(document['dose'].toString()),
+                                Text(
+                                  document['dose'].toString(),
+                                  style: const TextStyle(fontSize: 17),
+                                ),
                               ],
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Row(
+                            Wrap(
                               children: [
-                                const Text('Przyczyna zastosowanie ś.o.r:'),
+                                const Text(
+                                  'Powód:',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(document['treatmentCouse']),
+                                Text(
+                                  document['treatmentCouse'],
+                                  style: const TextStyle(fontSize: 17),
+                                ),
                               ],
                             ),
                           ],
