@@ -31,7 +31,11 @@ class RecordPageContent extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.green,
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: <Color>[Colors.green, Colors.yellow],
+                          ),
                         ),
                         // padding: const EdgeInsets.all(20),
                         child: Column(
@@ -40,7 +44,7 @@ class RecordPageContent extends StatelessWidget {
                             Wrap(
                               children: [
                                 const Text(
-                                  'Data i godzina zabiegu:',
+                                  'Data zabiegu:',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 17),

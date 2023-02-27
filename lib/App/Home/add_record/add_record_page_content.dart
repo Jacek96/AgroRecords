@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 
 class AddRecordPageContent extends StatefulWidget {
@@ -31,25 +32,42 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              TextField(
-                keyboardType: TextInputType.multiline,
-                minLines: 1,
-                maxLines: 5,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  hintText: 'Podaj datę i godzinę zabiegu',
-                ),
+              // TextField(
+              //   keyboardType: TextInputType.multiline,
+              //   minLines: 1,
+              //   maxLines: 5,
+              //   decoration: const InputDecoration(
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.all(
+              //         Radius.circular(20),
+              //       ),
+              //     ),
+              //     hintText: 'Podaj datę i godzinę zabiegu',
+              //   ),
+              //   onChanged: (newValue) {
+              //     setState(() {
+              //       recordDate = newValue;
+              //     });
+              //   },
+              // ),
+              //
+              DateTimePicker(
+                initialValue: '',
+                icon: const Icon(Icons.date_range_outlined),
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2100),
+                dateLabelText: 'Wybierz datę',
                 onChanged: (newValue) {
                   setState(() {
                     recordDate = newValue;
                   });
                 },
+                validator: (val) {
+                  return null;
+                },
+                onSaved: (val) => print(val),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -67,7 +85,7 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -85,7 +103,7 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -103,7 +121,7 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -121,7 +139,7 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -139,7 +157,7 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -157,7 +175,7 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -175,7 +193,7 @@ class _AddRecordPageContentState extends State<AddRecordPageContent> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               ElevatedButton(

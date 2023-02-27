@@ -55,20 +55,48 @@ class _HomePageState extends State<HomePage> {
         }
         return MyAccountPageContent(email: widget.user.email);
       }),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (newIndex) {
-          setState(() {
-            currentIndex = newIndex;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.agriculture), label: 'Ewidencja'),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Dodaj zabieg'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'Moje konto'),
-        ],
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: <Color>[Colors.green, Colors.yellow],
+        )),
+        child: BottomNavigationBar(
+          unselectedLabelStyle: const TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255), fontSize: 14),
+          fixedColor: Colors.deepPurple,
+          selectedFontSize: 16,
+          unselectedItemColor: Colors.black,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          currentIndex: currentIndex,
+          onTap: (newIndex) {
+            setState(() {
+              currentIndex = newIndex;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.agriculture,
+                  color: Colors.deepPurple,
+                ),
+                label: 'Ewidencja'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.add,
+                  color: Colors.deepPurple,
+                ),
+                label: 'Dodaj zabieg'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.deepPurple,
+                ),
+                label: 'Moje konto'),
+          ],
+        ),
       ),
     );
   }
