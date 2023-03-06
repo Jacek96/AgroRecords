@@ -57,8 +57,8 @@ class _LoginPageState extends State<LoginPage> {
                   // Welcome back, you've been missed
                   Text(
                     isCreatingAccount == true
-                        ? 'Create a new account'
-                        : 'Welcome back, you\'ve been missed',
+                        ? 'Załóż konto'
+                        : 'Zaloguj się do aplikacji',
                     style: const TextStyle(fontSize: 16),
                   ),
 
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                   //email textfield
                   MyTextField(
                     controller: widget.usernameController,
-                    hintText: 'Username',
+                    hintText: 'Nazwa użytkownika',
                     obscureText: false,
                   ),
 
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                   //password textfiled
                   MyTextField(
                     controller: widget.passwordController,
-                    hintText: 'Password',
+                    hintText: 'Hasło',
                     obscureText: true,
                   ),
 
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: const [
-                        Text('Forgot password?'),
+                        Text('Zapomniałeś hasła?'),
                       ],
                     ),
                   ),
@@ -142,8 +142,9 @@ class _LoginPageState extends State<LoginPage> {
                         }
                       }
                     },
-                    child:
-                        Text(isCreatingAccount == true ? 'Sign In' : 'Login'),
+                    child: Text(isCreatingAccount == true
+                        ? 'Zarejestruj się'
+                        : 'Zaloguj'),
                   ),
                   // MyButton(
                   //   onTap: signUserIn,
@@ -156,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                           isCreatingAccount = true;
                         });
                       },
-                      child: Text('Create account'),
+                      child: const Text('Stwórz konto'),
                     ),
                   ],
                   if (isCreatingAccount == true) ...[
@@ -166,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                           isCreatingAccount = false;
                         });
                       },
-                      child: Text('I have an account'),
+                      child: const Text('Mam już konto'),
                     ),
                   ],
 
@@ -185,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 25.0),
-                          child: Text('Or continue with'),
+                          child: Text('Lub zaloguj się przez'),
                         ),
                         Expanded(
                           child: Divider(
