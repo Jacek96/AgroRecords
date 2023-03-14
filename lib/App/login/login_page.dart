@@ -83,11 +83,11 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 20),
 
                   // forgot password
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: const [
+                      children: [
                         Text('Zapomniałeś hasła?'),
                       ],
                     ),
@@ -174,10 +174,10 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 30),
 
                   // or continue with
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
-                      children: const [
+                      children: [
                         Expanded(
                           child: Divider(
                             thickness: 1.5,
@@ -201,9 +201,9 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 30),
 
                   // google + apple sign in buttons
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       // google button
                       SquareTile(imagePath: 'lib/images/google.png'),
 
