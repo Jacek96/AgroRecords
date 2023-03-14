@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ewidencja/App/Home/my_records/cubit/my_records_cubit.dart';
+import 'package:flutter_ewidencja/App/features/Home/my_records/cubit/my_records_cubit.dart';
 
 class RecordPageContent extends StatelessWidget {
   const RecordPageContent({

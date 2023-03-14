@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ewidencja/App/Home/add_record/add_record_page_content.dart';
-import 'package:flutter_ewidencja/App/Home/my_account/my_account_page_content.dart';
-import 'package:flutter_ewidencja/App/Home/my_records/record_page_content.dart';
+import 'package:flutter_ewidencja/App/features/Home/add_record/add_record_page_content.dart';
+import 'package:flutter_ewidencja/App/features/Home/my_account/my_account_page_content.dart';
+import 'package:flutter_ewidencja/App/features/Home/my_records/record_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
