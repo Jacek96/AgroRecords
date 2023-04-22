@@ -53,7 +53,9 @@ class _HomePageState extends State<HomePage> {
             });
           });
         }
-        return MyAccountPageContent(email: widget.user.email);
+        return MyAccountPageContent(
+          email: widget.user.email,
+        );
       }),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
