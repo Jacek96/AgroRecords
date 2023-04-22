@@ -1,10 +1,22 @@
-# flutter_ewidencja
+# flutter_ewidencja - Prosta aplikacja do prowadzenia ewidencji zabiegów ochrony roślin
 
 A new Flutter project.
 
-## Getting Started
+## Wprowadzenie
 
-This project is a starting point for a Flutter application.
+Aplikacja powstała z myślą o rolnikach, którzy mają obowiązek prowadzenia ewidencji zabiegów środków ochrony roślin. Dzięki aplikacji rolnik w prosty i wygodny sposób może rejestrować zabiegi jakie wykonał w gospodarstwie.
+
+## Technologie
+
+* Dart
+* Flutter
+* BLoC
+* Firebase
+* Git
+
+![tekst alternatywny](flutter_ewidencja/images/bug.jpg)
+
+
 
 A few resources to get you started if this is your first Flutter project:
 
