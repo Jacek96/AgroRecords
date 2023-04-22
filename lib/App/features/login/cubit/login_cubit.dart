@@ -13,16 +13,14 @@ class LoginCubit extends Cubit<LoginState> {
           const LoginState(
             errorMessage: '',
             isLoading: false,
+            documents: [],
           ),
         );
   StreamSubscription? _streamSubscription;
 
   Future<void> start() async {
     emit(
-      const LoginState(
-        errorMessage: '',
-        isLoading: true,
-      ),
+      const LoginState(errorMessage: '', isLoading: true, documents: []),
     );
 
     _streamSubscription = FirebaseFirestore.instance
@@ -30,18 +28,19 @@ class LoginCubit extends Cubit<LoginState> {
         .snapshots()
         .listen((data) {
       emit(
-        const LoginState(
+        LoginState(
           errorMessage: '',
           isLoading: false,
+          documents: data.docs,
         ),
       );
     })
       ..onError((error) {
         emit(
           LoginState(
-            errorMessage: error.toString(),
-            isLoading: false,
-          ),
+              errorMessage: error.toString(),
+              isLoading: false,
+              documents: const []),
         );
       });
   }

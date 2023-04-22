@@ -1,9 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ewidencja/App/cubit/root_cubit.dart';
 import 'package:flutter_ewidencja/App/features/login/cubit/login_cubit.dart';
 import 'package:flutter_ewidencja/components/my_text_field.dart';
-import 'package:flutter_ewidencja/components/squere_tile.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({
@@ -122,11 +121,9 @@ class _LoginPageState extends State<LoginPage> {
                             if (isCreatingAccount == true) {
                               //rejestracja
                               try {
-                                await FirebaseAuth.instance
-                                    .createUserWithEmailAndPassword(
-                                        email: widget.usernameController.text,
-                                        password:
-                                            widget.passwordController.text);
+                                await context.read<RootCubit>().createUser(
+                                    email: widget.usernameController.text,
+                                    password: widget.passwordController.text);
                               } catch (error) {
                                 setState(
                                   () {
@@ -136,11 +133,9 @@ class _LoginPageState extends State<LoginPage> {
                               }
                             } else {
                               try {
-                                await FirebaseAuth.instance
-                                    .signInWithEmailAndPassword(
-                                        email: widget.usernameController.text,
-                                        password:
-                                            widget.passwordController.text);
+                                await context.read<RootCubit>().signIn(
+                                    email: widget.usernameController.text,
+                                    password: widget.passwordController.text);
                               } catch (error) {
                                 setState(
                                   () {

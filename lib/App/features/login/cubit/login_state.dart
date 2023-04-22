@@ -4,6 +4,10 @@ part of 'login_cubit.dart';
 class LoginState {
   final String errorMessage;
   final bool isLoading;
+  final List<QueryDocumentSnapshot<Map<String, dynamic>>> documents;
 
-  const LoginState({required this.errorMessage, required this.isLoading});
+  const LoginState(
+      {required this.errorMessage,
+      required this.isLoading,
+      required this.documents});
 }
