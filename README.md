@@ -14,7 +14,22 @@ Aplikacja powstała z myślą o rolnikach, którzy mają obowiązek prowadzenia 
 * Firebase
 * Git
 
+## Funkcjonalność
+
+### Rejestracja i logowanie użytkownika
 ![login-page](https://user-images.githubusercontent.com/120501818/233797777-a536f949-2782-4d67-9142-e84bade0ced9.PNG)
+
+### Lista zabiegów dodanych przez użytkownika
+![home-page](https://user-images.githubusercontent.com/120501818/233797916-5c67ee97-e61a-43b4-8190-3f507a6925db.PNG)
+
+### Wprowadzanie danych i dodawanie do listy zabiegów
+![add-record-page1](https://user-images.githubusercontent.com/120501818/233798060-776bf3b2-c32f-4d16-906c-ae26d540ce56.PNG)
+![add-record-page2](https://user-images.githubusercontent.com/120501818/233798062-820cb3eb-2e2c-4274-96a9-1b4c92fc4602.PNG)
+
+### Wylogowywnie użytkownika
+![logout](https://user-images.githubusercontent.com/120501818/233798071-8516363a-8ab1-414f-a806-8715b4291d65.PNG)
+
+
 
 
 
