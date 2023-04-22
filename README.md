@@ -14,7 +14,7 @@ Aplikacja powstała z myślą o rolnikach, którzy mają obowiązek prowadzenia 
 * Firebase
 * Git
 
-![login-page](https://user-images.githubusercontent.com/120501818/233783927-190cc320-a43a-4030-a6c4-4e29e7845ddf.PNG)
+![login-page](https://user-images.githubusercontent.com/120501818/233797777-a536f949-2782-4d67-9142-e84bade0ced9.PNG)
 
 
 
