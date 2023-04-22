@@ -14,7 +14,7 @@ Aplikacja powstała z myślą o rolnikach, którzy mają obowiązek prowadzenia 
 * Firebase
 * Git
 
-![tekst alternatywny](flutter_ewidencja/images/bug.jpg)
+![login-page](https://user-images.githubusercontent.com/120501818/233783927-190cc320-a43a-4030-a6c4-4e29e7845ddf.PNG)
 
 
 
